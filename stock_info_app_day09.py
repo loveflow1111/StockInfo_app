@@ -1,5 +1,5 @@
 # 주식 데이터를 가져오는 웹 앱
-
+import matplotlib.font_manager as fm
 import streamlit as st
 import pandas as pd
 from io import BytesIO
@@ -70,9 +70,8 @@ if clicked == True:
   st.dataframe(df.head())  # 주가 데이터 표시(앞의 일부만 표시)
 
  # matplotlib을 이용한 그래프에 한글을 표시하기 위한 설정
-  matplotlib.rcParams['font.family'] = 'Malgun Gothic'
+  fontprop = fm.FontProperties(fname='NanumGothic.ttf', size=18)
   matplotlib.rcParams['axes.unicode_minus'] = False
-    
  # 선 그래프 그리기
   ax = df['Close'].plot(grid=True, figsize=(15, 5))
   ax.set_title("주가(종가) 그래프", fontsize=30) # 그래프 제목을 지정
